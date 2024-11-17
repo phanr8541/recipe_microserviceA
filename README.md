@@ -58,7 +58,7 @@ Steps to Receive Data:
 # Receive the request from the client
 message = socket.recv_json()  # Receive JSON message from client
 search_term = message.get('search_term')  # Extract the search term
-search_by = message.get('search_by')  # Extract the search criterion (title or ingredient)
+search_by = message.get('search_by')  # Extract the search criteria (title or ingredient)
 ```
 The microservice listens on port 5555 for incoming requests.
 When it receives a request (e.g., search term 'chicken' and search by 'ingredient'), it processes the search and returns the matching recipes.
