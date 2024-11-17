@@ -62,3 +62,5 @@ search_by = message.get('search_by')  # Extract the search criterion (title or i
 ```
 The microservice listens on port 5555 for incoming requests.
 When it receives a request (e.g., search term 'chicken' and search by 'ingredient'), it processes the search and returns the matching recipes.
+
+## UML DIAGRAM
