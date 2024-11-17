@@ -15,14 +15,33 @@ To request data from the Search Microservice, you need to send a JSON message wi
 Steps to Request Data:
 1. Set up a client using the zmq.REQ socket.
 2. Send a JSON object with two key-value pairs:
-- search_term: The term you want to search for (either a recipe title or an ingredient).
-- search_by: Whether you want to search by "title" or "ingredient".
+  - search_term: The term you want to search for (either a recipe title or an ingredient).
+  - search_by: Whether you want to search by "title" or "ingredient".
 The client will send the request to the microservice, which will process it and return the results.
 ```python
 import zmq
-import json
 
+# Set up a ZeroMQ context and socket
 context = zmq.Context()
 socket = context.socket(zmq.REQ)
-socket.connect("tcp://localhost:5555")
+socket.connect("tcp://localhost:5555")  # Connect to the microservice
+
+# Define the search parameters
+search_params = {
+    'search_term': 'chicken',  # The search term (e.g., title or ingredient)
+    'search_by': 'ingredient'  # Either 'title' or 'ingredient'
+}
+
+# Send the search request to the microservice
+socket.send_json(search_params)
+
+# Wait for the response from the microservice
+response = socket.recv_json()
+
+# Print the search results
+print("Search Results:")
+for recipe in response:
+    print(f"\nRecipe Name: {recipe['name']}")
+    print(f"Ingredients: {recipe['ingredients']}")
+    print(f"Instructions: {recipe['instructions']}")
 ```
