@@ -45,3 +45,20 @@ for recipe in response:
     print(f"Ingredients: {recipe['ingredients']}")
     print(f"Instructions: {recipe['instructions']}")
 ```
+
+## RECEIVING DATA:
+To receive data from the Search Microservice, you need to set up a ZeroMQ REP socket on the microservice that listens for requests from the client, processes them, and sends back the response.
+
+Steps to Receive Data:
+
+1. The microservice listens for incoming JSON requests.
+2. It processes the request by searching the data (user_data.json) based on the provided search parameters (search_term and search_by).
+3. The microservice sends back a JSON array containing the results of the search (recipes that match the criteria).
+```python
+# Receive the request from the client
+message = socket.recv_json()  # Receive JSON message from client
+search_term = message.get('search_term')  # Extract the search term
+search_by = message.get('search_by')  # Extract the search criterion (title or ingredient)
+```
+The microservice listens on port 5555 for incoming requests.
+When it receives a request (e.g., search term 'chicken' and search by 'ingredient'), it processes the search and returns the matching recipes.
