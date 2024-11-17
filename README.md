@@ -65,4 +65,4 @@ When it receives a request (e.g., search term 'chicken' and search by 'ingredien
 
 ## UML DIAGRAM
 ![UML Sequence Diagram]
-(https://github.com/phanr8541/recipe_microserviceA/blob/main/UML%20Sequence%20Diagram.JPG)
+(https://github.com/phanr8541/recipe_microserviceA/blob/fca568687c5ce076df8e6cd39d4e8dbcd33b8df2/UML%20Sequence%20Diagram.JPG)
