@@ -64,5 +64,5 @@ The microservice listens on port 5555 for incoming requests.
 When it receives a request (e.g., search term 'chicken' and search by 'ingredient'), it processes the search and returns the matching recipes.
 
 ## UML DIAGRAM
-![UML Diagram]
+![UML Sequence Diagram]
 (https://github.com/phanr8541/recipe_microserviceA/blob/main/UML%20Sequence%20Diagram.JPG)
